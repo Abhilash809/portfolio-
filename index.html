@@ -1,75 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Abhilash - Computer Science Student & Web Developer">
+  <meta name="description"
+    content="Portfolio of Abhilash - Computer Science Student & Web Developer specializing in modern web experiences.">
+  <meta name="keywords"
+    content="Abhilash, Portfolio, Web Developer, Computer Science, IIT Sri Lanka, Frontend Developer">
   <title>Abhilash | Computer Science Student & Web Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-  <!-- Background Video -->
+  <!-- Background Video Overlay -->
+  <div class="video-overlay"></div>
   <video autoplay muted loop playsinline id="bg-video" aria-hidden="true">
     <source src="image/3d abstract waves black background.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
   </video>
 
   <!-- Navbar -->
   <nav id="navbar">
-    <div class="logo">Abhilash</div>
-    <button class="menu-toggle" aria-label="Menu">
-      <i class="fas fa-bars"></i>
-    </button>
-    <ul class="nav-menu">
-      <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
+    <div class="container">
+      <div class="logo">A<span>bhilash</span></div>
+      <button class="menu-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <main id="home">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Hi, I'm <span>Abhilash</span></h1>
-        <h2>Computer Science Student & Web Developer</h2>
-        <p>Passionate university student at IIT Sri Lanka, focused on creating beautiful and functional web experiences.</p>
-        <div class="btn-container">
-          <a href="#portfolio" class="btn btn-primary">
-            <span>View My Work</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="#" class="btn btn-secondary">
-            <span>Download CV</span>
-            <i class="fas fa-download"></i>
-          </a>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="badge">Available for Work</span>
+          <h1>Hi, I'm <span class="accent">Abhilash</span></h1>
+          <h2 class="typing-text">Computer Science Student & Web Developer</h2>
+          <p>Turning complex problems into elegant, user-centric digital solutions. Currently pursuing my Computer
+            Science degree at IIT Sri Lanka.</p>
+          <div class="btn-container">
+            <a href="#portfolio" class="btn btn-primary">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#" class="btn btn-outline">
+              <span>Download CV</span>
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          <div class="socials">
+            <a href="https://github.com" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
         </div>
-        <div class="socials">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-          </a>
+        <div class="hero-img-container">
+          <div class="image-wrapper">
+            <img src="image/IMG_3597.JPG" alt="Abhilash" class="hero-image">
+          </div>
+          <div class="floating-badge badge-1">
+            <i class="fas fa-code"></i>
+            <span>Web Dev</span>
+          </div>
+          <div class="floating-badge badge-2">
+            <i class="fas fa-graduation-cap"></i>
+            <span>IIT Student</span>
+          </div>
         </div>
       </div>
-      <div class="hero-img">
-        <img src="image/IMG_3597.JPG" alt="Abhilash" width="400" height="400">
-      </div>
-    </section>
-  </main>
+    </div>
+    <a href="#about" class="scroll-indicator">
+      <span>Scroll Down</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
 
-  <!-- Scroll Down -->
-  <a href="#about" class="scroll-down">
-    <i class="fas fa-chevron-down"></i>
-  </a>
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Get To Know Me</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-info card">
+          <h3>My Journey</h3>
+          <p>I am a passionate Computer Science student at IIT Sri Lanka. My fascination with technology began with a
+            curiosity about how things work on the web, which evolved into a dedicated pursuit of creating seamless
+            digital experiences.</p>
+          <p>I focus on frontend technologies but I'm always eager to learn across the full stack. I believe in writing
+            clean, efficient code and designing intuitive interfaces.</p>
+          <div class="stats">
+            <div class="stat-item">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years of Learning</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">10+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills card">
+          <h3>My Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-tag">HTML5</div>
+            <div class="skill-tag">CSS3</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">React</div>
+            <div class="skill-tag">Java</div>
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">Node.js</div>
+            <div class="skill-tag">UI/UX Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">My Career Path</span>
+        <h2 class="section-title">Experience & Projects</h2>
+      </div>
+      <div class="timeline">
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – 2025</div>
+          <div class="timeline-content card">
+            <div class="timeline-header">
+              <i class="fas fa-hand-holding-heart"></i>
+              <div>
+                <h3>Zero Hunger Sri Lanka</h3>
+                <span class="role">Web Developer</span>
+              </div>
+            </div>
+            <ul class="experience-list">
+              <li>Designed and developed a responsive website using HTML, CSS, and JavaScript, including feedback forms
+                and validated content pages.</li>
+              <li>Implemented client-side form validation and ensured accessibility and usability standards.</li>
+              <li>Collaborated in a group environment, managing assigned pages and meeting coursework deadlines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – 2025</div>
+          <div class="timeline-content card">
+            <div class="timeline-header">
+              <i class="fas fa-project-diagram"></i>
+              <div>
+                <h3>SDGP Project – WorkzUp Platform</h3>
+                <span class="role">System Design & Analysis</span>
+              </div>
+            </div>
+            <ul class="experience-list">
+              <li>Contributed to the design of WorkzUp, a job matching platform supporting user authentication, job
+                listings, and employer–employee matching.</li>
+              <li>Analyzed ethical, legal, and social issues related to handling personal and sensitive user data.</li>
+              <li>Documented system requirements and data usage considerations in line with professional standards.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – 2025</div>
+          <div class="timeline-content card">
+            <div class="timeline-header">
+              <i class="fab fa-java"></i>
+              <div>
+                <h3>Java Application Development</h3>
+                <span class="role">Coursework – Westminster Library Manager</span>
+              </div>
+            </div>
+            <ul class="experience-list">
+              <li>Developed Java-based functionality using object-oriented programming principles.</li>
+              <li>Created JUnit test cases to verify application behavior and functionality.</li>
+              <li>Debugged and tested applications using modern testing frameworks to ensure robustness.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">What I've Built</span>
+        <h2 class="section-title">Latest Projects</h2>
+      </div>
+      <div class="project-grid">
+        <!-- Project 1: Nexora Fresh -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800"
+              alt="Nexora Fresh - Organic Food Platform">
+            <div class="project-overlay">
+              <a href="#" class="overlay-link" title="Live Preview"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-link" title="View Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Full-Stack E-Commerce</span>
+            <h3>Nexora Fresh</h3>
+            <p>A production-ready marketplace for organic food, featuring role-based access for customers and suppliers,
+              persistent cart management, and a fresh organic brand aesthetic.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Prisma</span>
+              <span>Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: WorkzUp -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800"
+              alt="WorkzUp - Job Platform">
+            <div class="project-overlay">
+              <a href="#" class="overlay-link" title="Live Preview"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-link" title="View Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Full-Stack Platform</span>
+            <h3>WorkzUp</h3>
+            <p>A specialized job matching platform for university students in Sri Lanka. Supports job listings,
+              student/employer dashboards, and ethical data handling practices.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Express</span>
+              <span>SQLite</span>
+              <span>Prisma</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Westminster Library Manager -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800"
+              alt="Library Manager">
+            <div class="project-overlay">
+              <a href="#" class="overlay-link" title="Live Preview"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-link" title="View Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category">Java Application</span>
+            <h3>Library Manager</h3>
+            <p>A robust CLI-based management system developed using OOP principles, featuring automated testing with
+              JUnit and secure data handling.</p>
+            <div class="project-tags">
+              <span>Java</span>
+              <span>JUnit</span>
+              <span>OOP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Let's Talk</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info card">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-detail">
+              <h4>Email</h4>
+              <p>abhilash@example.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div class="contact-detail">
+              <h4>Location</h4>
+              <p>Colombo, Sri Lanka</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <div class="contact-detail">
+              <h4>LinkedIn</h4>
+              <p>linkedin.com/in/abhilash</p>
+            </div>
+          </div>
+        </div>
+        <form id="contact-form" class="card">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2026 Abhilash. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
