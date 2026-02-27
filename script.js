@@ -65,23 +65,48 @@ document.querySelectorAll('.section, .card, .project-card').forEach(el => {
     revealOnScroll.observe(el);
 });
 
-// Form submission (placeholder)
+// Form submission to Web3Forms
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = contactForm.querySelector('button');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
-        
+
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+            const result = await response.json();
+
+            if (response.status === 200) {
+                btn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>';
+                btn.style.background = '#28a745';
+                contactForm.reset();
+            } else {
+                btn.innerHTML = '<span>Error Sending</span><i class="fas fa-times"></i>';
+                btn.style.background = '#dc3545';
+                console.log(result);
+            }
+        } catch (error) {
+            console.log(error);
+            btn.innerHTML = '<span>Error Sending</span><i class="fas fa-times"></i>';
+            btn.style.background = '#dc3545';
+        }
+
         setTimeout(() => {
-            btn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>';
-            btn.style.background = '#28a745';
-            contactForm.reset();
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-            }, 3000);
-        }, 1500);
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+        }, 3000);
     });
 }
