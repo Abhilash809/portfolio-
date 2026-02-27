@@ -110,3 +110,36 @@ if (contactForm) {
         }, 3000);
     });
 }
+
+// Custom Cursor
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+window.addEventListener('mousemove', function (e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Add a slight delay to the outline for a smooth fluid effect
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Hide cursor when typing
+const inputElements = document.querySelectorAll('input, textarea');
+
+inputElements.forEach(el => {
+    el.addEventListener('focus', () => {
+        cursorDot.classList.add('cursor-hidden');
+        cursorOutline.classList.add('cursor-hidden');
+    });
+
+    el.addEventListener('blur', () => {
+        cursorDot.classList.remove('cursor-hidden');
+        cursorOutline.classList.remove('cursor-hidden');
+    });
+});
