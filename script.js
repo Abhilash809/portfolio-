@@ -111,33 +111,72 @@ if (contactForm) {
     });
 }
 
-// Custom Cursor
+// Custom Cursor with Smooth Smoothing
 const cursorDot = document.querySelector('[data-cursor-dot]');
 const cursorOutline = document.querySelector('[data-cursor-outline]');
 
+let mouseX = 0;
+let mouseY = 0;
+let outlineX = 0;
+let outlineY = 0;
+
 window.addEventListener('mousemove', function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Add a slight delay to the outline for a smooth fluid effect
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
 });
+
+function animateCursor() {
+    // Smoother interpolation for the outline
+    outlineX += (mouseX - outlineX) * 0.15;
+    outlineY += (mouseY - outlineY) * 0.15;
+
+    cursorOutline.style.left = `${outlineX}px`;
+    cursorOutline.style.top = `${outlineY}px`;
+
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Enhanced 3D Tilt with Magnetic Glow Effect
+const tiltWrapper = document.querySelector('.image-wrapper');
+if (tiltWrapper) {
+    tiltWrapper.addEventListener('mousemove', (e) => {
+        const rect = tiltWrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Tilt Calculation
+        const rotateX = (centerY - y) / 10;
+        const rotateY = (x - centerX) / 10;
+        
+        // Apply Tilt
+        tiltWrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        
+        // Holographic Light Tracking
+        const moveX = (x / rect.width) * 100;
+        const moveY = (y / rect.height) * 100;
+        tiltWrapper.style.setProperty('--mouse-x', `${moveX}%`);
+        tiltWrapper.style.setProperty('--mouse-y', `${moveY}%`);
+    });
+    
+    tiltWrapper.addEventListener('mouseleave', () => {
+        tiltWrapper.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+}
 
 // Hide cursor when typing
 const inputElements = document.querySelectorAll('input, textarea');
-
 inputElements.forEach(el => {
     el.addEventListener('focus', () => {
         cursorDot.classList.add('cursor-hidden');
         cursorOutline.classList.add('cursor-hidden');
     });
-
     el.addEventListener('blur', () => {
         cursorDot.classList.remove('cursor-hidden');
         cursorOutline.classList.remove('cursor-hidden');
